@@ -15,12 +15,12 @@ import simpledb.server.SimpleDB;
 /**
  * @author Roman Yasinovskyy
  */
-public class BufferMgrUnitTest {
+public class BufferMgrTest {
 
     private SimpleDB db4 = new SimpleDB("testdb", 400, 4);
     private SimpleDB db5 = new SimpleDB("testdb", 400, 5);
 
-    public BufferMgrUnitTest() {
+    public BufferMgrTest() {
     }
 
     @BeforeAll
