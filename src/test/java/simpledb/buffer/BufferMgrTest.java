@@ -1,5 +1,6 @@
 package simpledb.buffer;
 
+import java.io.File;
 import java.util.ArrayList;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -29,6 +30,22 @@ public class BufferMgrTest {
 
     @AfterAll
     public static void tearDownClass() {
+        System.out.println("Finish testing class BufferMgr implementation");
+        File dbFile = new File("testdb/tempbuffer");
+
+        if (dbFile.exists()) {
+            dbFile.delete();
+        }
+        File dbLogFile = new File("testdb/simpledb.log");
+
+        if (dbLogFile.exists()) {
+            dbLogFile.delete();
+        }
+        File dbDir = new File("testdb");
+
+        if (dbDir.exists()) {
+            dbDir.delete();
+        }
     }
 
     @BeforeEach
