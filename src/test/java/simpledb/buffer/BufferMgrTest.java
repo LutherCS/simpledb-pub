@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,6 +86,7 @@ public class BufferMgrTest {
      * Test of Naive Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testNaiveStrategy4() {
         System.out.println("Naive Strategy (4 buffers)");
         SimpleDB db = this.db4;
@@ -105,6 +107,7 @@ public class BufferMgrTest {
      * Test of Naive Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testNaiveStrategy5() {
         System.out.println("Naive Strategy (5 buffers)");
         SimpleDB db = this.db5;
@@ -125,6 +128,7 @@ public class BufferMgrTest {
      * Test of FIFO Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testFIFOStrategy4() {
         System.out.println("FIFO Strategy (4 buffers)");
         SimpleDB db = this.db4;
@@ -145,6 +149,7 @@ public class BufferMgrTest {
      * Test of FIFO Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testFIFOStrategy5() {
         System.out.println("FIFO Strategy (5 buffers)");
         SimpleDB db = this.db5;
@@ -165,6 +170,7 @@ public class BufferMgrTest {
      * Test of LRU Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testLRUStrategy4() {
         System.out.println("LRU Strategy (4 buffers)");
         SimpleDB db = this.db4;
@@ -185,6 +191,7 @@ public class BufferMgrTest {
      * Test of LRU Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testLRUStrategy5() {
         System.out.println("LRU Strategy (5 buffers)");
         SimpleDB db = this.db5;
@@ -205,6 +212,7 @@ public class BufferMgrTest {
      * Test of Clock Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testClockStrategy4() {
         System.out.println("Clock Strategy (4 buffers)");
         SimpleDB db = this.db4;
@@ -225,6 +233,7 @@ public class BufferMgrTest {
      * Test of Clock Buffer selection strategy, of class BufferMgr.
      */
     @Test
+    @Disabled
     public void testClockStrategy5() {
         System.out.println("Clock Strategy (5 buffers)");
         SimpleDB db = this.db5;

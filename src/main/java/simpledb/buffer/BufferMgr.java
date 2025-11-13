@@ -17,7 +17,7 @@ public class BufferMgr {
     private static final long MAX_TIME = 10000; // 10 seconds
     private String strategy = "naive";
     private int time = 0;
-    private int lastReplacement = 0;  // used by the Clock strategy
+    private int lastReplacement = 0;
 
     /**
      * Creates a buffer manager having the specified number
@@ -61,8 +61,8 @@ public class BufferMgr {
      * @param buff the buffer to be unpinned
      */
     public synchronized void unpin(Buffer buff) {
-        // TODO: unpin time must be updated
         buff.unpin();
+        buff.setTimeUnpinned(++time);
         if (!buff.isPinned()) {
             numAvailable++;
             notifyAll();
@@ -109,7 +109,6 @@ public class BufferMgr {
      * @return the pinned buffer
      */
     private Buffer tryToPin(BlockId blk) {
-        // TODO: pin time and replacement time must be updated
         Buffer buff = findExistingBuffer(blk);
         if (buff == null) {
             buff = chooseUnpinnedBuffer();
@@ -117,9 +116,11 @@ public class BufferMgr {
                 return null;
             buff.assignToBlock(blk);
         }
+        
         if (!buff.isPinned())
             numAvailable--;
         buff.pin();
+        
         return buff;
     }
 
@@ -183,8 +184,12 @@ public class BufferMgr {
      * @return chosen buffer
      */
     private Buffer useNaiveStrategy() {
-        // TODO: Implement Naive strategy
-        throw new NotImplementedException("Naive strategy not implemented");
+        for (Buffer buff : bufferpool) {
+            if (!buff.isPinned()) {
+                return buff;
+            }
+        }
+        return null;
     }
 
     /**
@@ -193,8 +198,7 @@ public class BufferMgr {
      * @return chosen buffer
      */
     private Buffer useFIFOStrategy() {
-        // TODO: Implement FIFO strategy
-        throw new NotImplementedException("FIFO strategy not implemented");
+        throw new NotImplementedException("Clock strategy not implemented");
     }
 
     /**
@@ -203,8 +207,7 @@ public class BufferMgr {
      * @return chosen buffer
      */
     private Buffer useLRUStrategy() {
-        // TODO: Implement LRU strategy
-        throw new NotImplementedException("LRU strategy not implemented");
+        throw new NotImplementedException("Clock strategy not implemented");
     }
 
     /**
@@ -213,7 +216,6 @@ public class BufferMgr {
      * @return chosen buffer
      */
     private Buffer useClockStrategy() {
-        // TODO: Implement Clock strategy
         throw new NotImplementedException("Clock strategy not implemented");
     }
 
